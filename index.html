@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>foxii kutsite</title>
+    <title>foggy kut</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,60 +13,71 @@
     </header>
 
     <main>
+
+        <!-- SECTION 1 -->
         <section>
             <h2>wie heeft deze shit "gemaakt"</h2>
             <button class="expand-btn">Kutknop 1</button>
+
             <div class="expandable-content">
-                <p>deze site is medemogelijk gemaakt door een oelewapper (chatgpt)</p>
-                <img src="https://media.tenor.com/wsbmWYxnJYQAAAAM/kermit-falling.gif" alt="Example Image" class="responsive-image">
+                <p>deze site is medemogelijk gemaakt door een kankermogool (chatgpt)</p>
+                <img src="https://media.tenor.com/wsbmWYxnJYQAAAAM/kermit-falling.gif" 
+                     alt="Example Image" 
+                     class="responsive-image">
             </div>
         </section>
 
+        <!-- SECTION 2 -->
         <section>
             <h2>misschien random info?</h2>
             <button class="expand-btn">Kutknop 2</button>
+
             <div class="expandable-content">
                 <p>k heb echt geen idee wat er in deze site moet</p>
-                <img src="https://i.imgur.com/GVawDeM.gif" alt="Example Image 2" class="responsive-image">
+                <img src="https://i.imgur.com/GVawDeM.gif" 
+                     alt="Example Image 2" 
+                     class="responsive-image">
             </div>
         </section>
+
     </main>
 
     <footer>
         <p>© 2025 kut website. no rights reserved.</p>
     </footer>
 
+    <!-- JAVASCRIPT -->
     <script>
+        // Hide all content on page load
+        document.querySelectorAll('.expandable-content').forEach(div => {
+            div.style.display = 'none';
+        });
+
         const buttons = document.querySelectorAll('.expand-btn');
 
-        buttons.forEach(button => {
+        buttons.forEach((button, index) => {
+            const originalName = `Kutknop ${index + 1}`;
+            const expandedName = `Kutknop ${index + 1}.5`;
+
+            // Ensure initial button text
+            button.textContent = originalName;
+
             button.addEventListener('click', () => {
                 const content = button.nextElementSibling;
 
                 if (content.style.display === "block") {
+                    // collapse
                     content.style.display = "none";
-                    button.textContent = "Kutknop 1";
+                    button.textContent = originalName;
                 } else {
+                    // expand
                     content.style.display = "block";
-                    button.textContent = "Kutknop 1.5";
+                    button.textContent = expandedName;
                 }
             });
         });
     </script>
-            const buttons = document.querySelectorAll('.expand-btn');
 
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                const content = button.nextElementSibling;
-
-                if (content.style.display === "block") {
-                    content.style.display = "none";
-                    button.textContent = "Kutknop 2";
-                } else {
-                    content.style.display = "block";
-                    button.textContent = "Kutknop 2.5";
-                }
-            });
-        });
 </body>
 </html>
+
