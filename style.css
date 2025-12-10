@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #121212; /* dark background */
-    color: #e0e0e0; /* light text */
+    color: #ffffff; /* white text */
     max-width: 900px;
     margin: auto;
     padding: 20px;
@@ -12,7 +12,7 @@ body {
 header {
     text-align: center;
     padding: 20px 0;
-    background-color: #1f1f1f; /* slightly lighter dark */
+    background-color: #1f1f1f;
     border-radius: 10px;
     margin-bottom: 30px;
     box-shadow: 0px 2px 10px rgba(0,0,0,0.5);
@@ -37,12 +37,36 @@ main section {
 }
 
 main h2 {
-    color: #61dafb; /* blue-ish accent */
+    color: #61dafb; /* blue accent */
     margin-bottom: 10px;
 }
 
 main p {
     margin-bottom: 10px;
+}
+
+/* Expandable content */
+.expandable-content {
+    display: none;
+    margin-top: 10px;
+    background-color: #1b1b1b;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Buttons */
+.expand-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.expand-btn:hover {
+    background-color: #555;
 }
 
 /* Images */
