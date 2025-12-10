@@ -74,14 +74,14 @@ main h2 {
 
 /* Right-side floating buttons */
 .right-buttons {
-    position: fixed;
-    top: 50%;
-    right: 20px;
+    position: fixed !important;
+    top: 50% !important;
+    right: 20px !important;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     gap: 10px;
-    z-index: 999;
+    z-index: 9999;
 }
 
 .side-btn {
@@ -93,7 +93,7 @@ main h2 {
     border: 2px solid #555;
     text-align: center;
     font-size: 14px;
-    width: 110px;
+    width: 120px;
     transition: 0.2s;
 }
 
