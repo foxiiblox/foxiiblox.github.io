@@ -9,18 +9,32 @@
 <body>
 
     <!-- LANGUAGE SWITCH BUTTON -->
-    <button id="langBtn" class="lang-btn">English</button>
+<!-- LANGUAGE SWITCH BUTTON -->
+<button id="langBtn" class="lang-btn">English</button>
 
-    <header>
-        <h1 data-nl="welkom in deze shit site" data-en="welcome to this shitty site">
-            welkom in deze shit site
-        </h1>
-        <p data-nl="sprietje mag hier niet zijn" data-en="sprietje is not allowed here">
-            sprietje mag hier niet zijn
-        </p>
-    </header>
+<style>
+/* Keep this in your style.css or in a <style> block in head */
 
-    <main>
+/* Language switch button fixed top-left */
+.lang-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000; /* ensures it stays above other content */
+    padding: 10px 15px;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Optional: hover effect */
+.lang-btn:hover {
+    background-color: #444;
+}
+</style>
+
 
         <!-- SECTION 1 -->
         <section>
