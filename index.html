@@ -78,23 +78,22 @@
 
         const buttons = document.querySelectorAll('.expand-btn');
 
-        buttons.forEach((button, index) => {
-            const originalName = `Kutknop ${index + 1}`;
-            const expandedName = `Kutknop ${index + 1}.5`;
+        function toggleContent(contentDiv, button) {
+            const baseText = button.getAttribute("data-" + currentLang);
+            const expandedText = baseText + " .5";
 
-            button.textContent = originalName;
+            if (contentDiv.style.display === "block") {
+                contentDiv.style.display = "none";
+                button.textContent = baseText;
+            } else {
+                contentDiv.style.display = "block";
+                button.textContent = expandedText;
+            }
+        }
 
-            button.addEventListener('click', () => {
-                const content = button.nextElementSibling;
-
-                if (content.style.display === "block") {
-                    content.style.display = "none";
-                    button.textContent = originalName;
-                } else {
-                    content.style.display = "block";
-                    button.textContent = expandedName;
-                }
-            });
+        buttons.forEach(button => {
+            const content = button.nextElementSibling;
+            button.addEventListener('click', () => toggleContent(content, button));
         });
 
         // LANGUAGE SWITCHER
@@ -109,45 +108,38 @@
                 el.textContent = el.getAttribute("data-" + currentLang);
             });
 
-            // Change button label
+            // Change language switch button text
             langBtn.textContent = currentLang === "nl" ? "English" : "Nederlands";
 
-            // Update expand buttons too
-            buttons.forEach((button, index) => {
-                const base = button.getAttribute("data-" + currentLang);
-                const expanded = base + " .5";
-
-                // keep original/expanded state intact
-                if (button.nextElementSibling.style.display === "block") {
-                    button.textContent = expanded;
-                } else {
-                    button.textContent = base;
-                }
+            // Update expand buttons for expanded/collapsed state
+            buttons.forEach(button => {
+                const content = button.nextElementSibling;
+                const baseText = button.getAttribute("data-" + currentLang);
+                button.textContent = content.style.display === "block" ? baseText + " .5" : baseText;
             });
         });
     </script>
 
     <!-- RIGHT SIDE BUTTONS -->
-<div class="right-buttons">
-    <a href="https://www.youtube.com/@foggydeth" 
-       target="_blank" 
-       class="side-btn"
-       data-nl="kanaal"
-       data-en="channel">kanaal</a>
+    <div class="right-buttons">
+        <a href="https://www.youtube.com/@foggydeth" 
+           target="_blank" 
+           class="side-btn"
+           data-nl="kanaal"
+           data-en="channel">kanaal</a>
 
-    <a href="https://youtube.com" 
-       target="_blank" 
-       class="side-btn"
-       data-nl="joeptoep"
-       data-en="youtube">joeptoep</a>
+        <a href="https://youtube.com" 
+           target="_blank" 
+           class="side-btn"
+           data-nl="joeptoep"
+           data-en="youtube">joeptoep</a>
 
-    <a href="https://wikipedia.org" 
-       target="_blank" 
-       class="side-btn"
-       data-nl="wiki"
-       data-en="wikipedia">wiki</a>
-</div>
-
+        <a href="https://wikipedia.org" 
+           target="_blank" 
+           class="side-btn"
+           data-nl="wiki"
+           data-en="wikipedia">wiki</a>
+    </div>
 
 </body>
 </html>
