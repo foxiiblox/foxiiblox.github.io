@@ -53,5 +53,20 @@
             });
         });
     </script>
+            const buttons = document.querySelectorAll('.expand-btn');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                    button.textContent = "Kutknop 2";
+                } else {
+                    content.style.display = "block";
+                    button.textContent = "Kutknop 2.5";
+                }
+            });
+        });
 </body>
 </html>
