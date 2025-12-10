@@ -47,7 +47,7 @@ main p {
 
 /* Expandable content */
 .expandable-content {
-    display: none;
+    display: none; /* hidden by default */
     margin-top: 10px;
     background-color: #1b1b1b;
     padding: 10px;
