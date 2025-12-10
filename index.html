@@ -5,36 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>foggy kut</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Make the language button fixed top-left */
+        .lang-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            padding: 10px 15px;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #555;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .lang-btn:hover {
+            background-color: #444;
+        }
+    </style>
 </head>
 <body>
 
     <!-- LANGUAGE SWITCH BUTTON -->
-<!-- LANGUAGE SWITCH BUTTON -->
-<button id="langBtn" class="lang-btn">English</button>
+    <button id="langBtn" class="lang-btn">English</button>
 
-<style>
-/* Keep this in your style.css or in a <style> block in head */
+    <header>
+        <h1 data-nl="welkom in deze shit site" data-en="welcome to this shitty site">
+            welkom in deze shit site
+        </h1>
+        <p data-nl="sprietje mag hier niet zijn" data-en="sprietje is not allowed here">
+            sprietje mag hier niet zijn
+        </p>
+    </header>
 
-/* Language switch button fixed top-left */
-.lang-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1000; /* ensures it stays above other content */
-    padding: 10px 15px;
-    background-color: #333;
-    color: #fff;
-    border: 1px solid #555;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* Optional: hover effect */
-.lang-btn:hover {
-    background-color: #444;
-}
-</style>
-
+    <main>
 
         <!-- SECTION 1 -->
         <section>
