@@ -15,13 +15,23 @@
     <main>
         <section>
             <h2>wie heeft deze shit "gemaakt"</h2>
-            <p>deze site is medemogelijk gemaakt door een oelewapper (chatgpt)</p>
+            
+            <button class="expand-btn">Lees meer</button>
+            <div class="expandable-content">
+                <p>deze site is medemogelijk gemaakt door een kankermogool (chatgpt)</p>
+            </div>
+
             <img src="https://media.tenor.com/wsbmWYxnJYQAAAAM/kermit-falling.gif" alt="Example Image" class="responsive-image">
         </section>
 
         <section>
             <h2>misschien random info?</h2>
-            <p>k heb echt geen idee wat er in deze site moet</p>
+            
+            <button class="expand-btn">Lees meer</button>
+            <div class="expandable-content">
+                <p>k heb echt geen idee wat er in deze site moet</p>
+            </div>
+
             <img src="https://i.imgur.com/GVawDeM.gif" alt="Example Image 2" class="responsive-image">
         </section>
     </main>
@@ -29,5 +39,22 @@
     <footer>
         <p>© 2025 kut website. no rights reserved.</p>
     </footer>
+
+    <script>
+    const buttons = document.querySelectorAll('.expand-btn');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                button.textContent = "Lees meer";
+            } else {
+                content.style.display = "block";
+                button.textContent = "Lees minder";
+            }
+        });
+    });
+    </script>
 </body>
 </html>
