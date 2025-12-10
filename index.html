@@ -1,90 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>foggy kut</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Page</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    /* Right-side buttons */
+    .right-buttons {
+        position: fixed;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .right-buttons button {
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    /* Collapsible sections */
+    .content-section {
+        margin: 20px;
+        padding: 10px;
+        border: 1px solid #aaa;
+        display: none;
+    }
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>welkom in deze shit site</h1>
-        <p>sprietje mag hier niet zijn</p>
-    </header>
 
-    <main>
+<!-- Language Switch Button -->
+<button id="langSwitch" onclick="switchLanguage()"
+        style="position: fixed; top: 20px; left: 20px;">
+    English
+</button>
 
-        <!-- SECTION 1 -->
-        <section>
-            <h2>wie heeft deze shit "gemaakt"</h2>
-            <button class="expand-btn">Kutknop 1</button>
+<h1 data-nl="Welkom op mijn testpagina" data-en="Welcome to my test page">
+    Welkom op mijn testpagina
+</h1>
 
-            <div class="expandable-content">
-                <p>deze site is medemogelijk gemaakt door een kankermogool (chatgpt)</p>
-                <img src="https://media.tenor.com/wsbmWYxnJYQAAAAM/kermit-falling.gif" 
-                     alt="Example Image" 
-                     class="responsive-image">
-            </div>
-        </section>
+<!-- RIGHT SIDE BUTTONS -->
+<div class="right-buttons">
+    <button onclick="toggleSection('s1')" 
+            id="btn1" 
+            data-nl="Kutknop 1" 
+            data-en="Button 1">
+        Kutknop 1
+    </button>
 
-        <!-- SECTION 2 -->
-        <section>
-            <h2>misschien random info?</h2>
-            <button class="expand-btn">Kutknop 2</button>
+    <button onclick="toggleSection('s2')" 
+            id="btn2"
+            data-nl="Kutknop 2" 
+            data-en="Button 2">
+        Kutknop 2
+    </button>
 
-            <div class="expandable-content">
-                <p>k heb echt geen idee wat er in deze site moet</p>
-                <img src="https://i.imgur.com/GVawDeM.gif" 
-                     alt="Example Image 2" 
-                     class="responsive-image">
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>© 2025 kut website. no rights reserved.</p>
-    </footer>
-
-    <!-- JAVASCRIPT -->
-    <script>
-        // Hide all content on page load
-        document.querySelectorAll('.expandable-content').forEach(div => {
-            div.style.display = 'none';
-        });
-
-        const buttons = document.querySelectorAll('.expand-btn');
-
-        buttons.forEach((button, index) => {
-            const originalName = `Kutknop ${index + 1}`;
-            const expandedName = `Kutknop ${index + 1}.5`;
-
-            // Ensure initial button text
-            button.textContent = originalName;
-
-            button.addEventListener('click', () => {
-                const content = button.nextElementSibling;
-
-                if (content.style.display === "block") {
-                    // collapse
-                    content.style.display = "none";
-                    button.textContent = originalName;
-                } else {
-                    // expand
-                    content.style.display = "block";
-                    button.textContent = expandedName;
-                }
-            });
-        });
-    </script>
-
-    <div class="right-buttons">
-    <a href="https://www.youtube.com/@foggydeth" target="_blank" class="side-btn">kanaal</a>
-    <a href="https://youtube.com" target="_blank" class="side-btn">joeptoep</a>
-    <a href="https://wikipedia.org" target="_blank" class="side-btn">wiki</a>
-
+    <!-- Add your link buttons here -->
+    <button onclick="window.open('https://google.com')" 
+            data-nl="Ga naar Google" data-en="Go to Google">
+        Ga naar Google
+    </button>
 </div>
+
+<!-- COLLAPSIBLE SECTIONS -->
+<div id="s1" class="content-section"
+     data-nl="Dit is inhoud 1" 
+     data-en="This is content 1">
+    Dit is inhoud 1
+</div>
+
+<div id="s2" class="content-section"
+     data-nl="Dit is inhoud 2" 
+     data-en="This is content 2">
+    Dit is inhoud 2
+</div>
+
+<script>
+let currentLang = "nl";
+
+function switchLanguage() {
+    currentLang = (currentLang === "nl") ? "en" : "nl";
+
+    document.querySelectorAll("[data-nl]").forEach(el => {
+        el.innerText = el.getAttribute("data-" + currentLang);
+    });
+
+    document.getElementById("langSwitch").innerText =
+        currentLang === "nl" ? "English" : "Nederlands";
+}
+
+function toggleSection(id) {
+    const section = document.getElementById(id);
+    const button = (id === "s1") ? document.getElementById("btn1") : document.getElementById("btn2");
+
+    if (section.style.display === "block") {
+        section.style.display = "none";
+
+        // Restore normal button name
+        button.innerText = button.getAttribute("data-" + currentLang);
+    } else {
+        section.style.display = "block";
+
+        // Append ".5" to name
+        let base = button.getAttribute("data-" + currentLang);
+        button.innerText = base + " .5";
+    }
+}
+</script>
 
 </body>
 </html>
-
