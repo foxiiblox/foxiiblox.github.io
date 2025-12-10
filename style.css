@@ -75,7 +75,7 @@ main h2 {
 /* Right-side floating buttons */
 .right-buttons {
     position: fixed !important;
-    top: 50% !important;
+    top: 15% !important;
     right: 20px !important;
     transform: translateY(-50%);
     display: flex;
