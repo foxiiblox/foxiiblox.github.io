@@ -1,162 +1,90 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kut Website</title>
-
-<style>
-    body {
-        background-color: #111;
-        color: #fff;
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-
-    header, footer {
-        text-align: center;
-        padding: 20px;
-    }
-
-    main {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-
-    section {
-        margin-bottom: 40px;
-    }
-
-    .hidden-content {
-        display: none;
-        margin-top: 10px;
-    }
-
-    .responsive-image {
-        width: 100%;
-        max-width: 400px;
-        display: block;
-        margin-top: 10px;
-    }
-
-    /* Right-side navigation buttons */
-    .right-buttons {
-        position: fixed;
-        top: 50%;
-        right: 20px;
-        transform: translateY(-50%);
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .right-buttons button, .lang-btn {
-        padding: 10px 14px;
-        background: #333;
-        border: 1px solid #555;
-        color: white;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-
-    .lang-btn {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>foggy kut</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <header>
+        <h1>welkom in deze shit site</h1>
+        <p>sprietje mag hier niet zijn</p>
+    </header>
 
-<button class="lang-btn" onclick="switchLang()">English</button>
+    <main>
 
-<header>
-    <h1 data-nl="welkom in deze shit site" 
-        data-en="welcome to this shitty site">welkom in deze shit site</h1>
+        <!-- SECTION 1 -->
+        <section>
+            <h2>wie heeft deze shit "gemaakt"</h2>
+            <button class="expand-btn">Kutknop 1</button>
 
-    <p data-nl="sprietje mag hier niet zijn"
-       data-en="sprietje is not allowed here">sprietje mag hier niet zijn</p>
-</header>
+            <div class="expandable-content">
+                <p>deze site is medemogelijk gemaakt door een kankermogool (chatgpt)</p>
+                <img src="https://media.tenor.com/wsbmWYxnJYQAAAAM/kermit-falling.gif" 
+                     alt="Example Image" 
+                     class="responsive-image">
+            </div>
+        </section>
 
-<div class="right-buttons">
-    <button id="btn1" data-nl="Kutknop 1" data-en="Button 1" onclick="toggleContent('c1', 'btn1')">Kutknop 1</button>
-    <button id="btn2" data-nl="Kutknop 2" data-en="Button 2" onclick="toggleContent('c2', 'btn2')">Kutknop 2</button>
+        <!-- SECTION 2 -->
+        <section>
+            <h2>misschien random info?</h2>
+            <button class="expand-btn">Kutknop 2</button>
 
-    <!-- Example link button -->
-    <button onclick="window.location.href='https://google.com'">Google</button>
+            <div class="expandable-content">
+                <p>k heb echt geen idee wat er in deze site moet</p>
+                <img src="https://i.imgur.com/GVawDeM.gif" 
+                     alt="Example Image 2" 
+                     class="responsive-image">
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2025 kut website. no rights reserved.</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Hide all content on page load
+        document.querySelectorAll('.expandable-content').forEach(div => {
+            div.style.display = 'none';
+        });
+
+        const buttons = document.querySelectorAll('.expand-btn');
+
+        buttons.forEach((button, index) => {
+            const originalName = `Kutknop ${index + 1}`;
+            const expandedName = `Kutknop ${index + 1}.5`;
+
+            // Ensure initial button text
+            button.textContent = originalName;
+
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+
+                if (content.style.display === "block") {
+                    // collapse
+                    content.style.display = "none";
+                    button.textContent = originalName;
+                } else {
+                    // expand
+                    content.style.display = "block";
+                    button.textContent = expandedName;
+                }
+            });
+        });
+    </script>
+
+    <div class="right-buttons">
+    <a href="https://www.youtube.com/@foggydeth" target="_blank" class="side-btn">kanaal</a>
+    <a href="https://youtube.com" target="_blank" class="side-btn">joeptoep</a>
+    <a href="https://wikipedia.org" target="_blank" class="side-btn">wiki</a>
+
 </div>
-
-<main>
-    <!-- SECTION 1 -->
-    <section>
-        <h2 data-nl='wie heeft deze shit "gemaakt"' 
-            data-en='who made this shit'>"wie heeft deze shit "gemaakt"</h2>
-
-        <div id="c1" class="hidden-content">
-            <p data-nl="deze site is medemogelijk gemaakt door een kankermogool (chatgpt)"
-               data-en="this site was created by a dysfunctional AI (chatgpt)">
-               deze site is medemogelijk gemaakt door een kankermogool (chatgpt)
-            </p>
-            <img class="responsive-image" src="https://media.tenor.com/wsbmWYxnJYQAAAAM/kermit-falling.gif">
-        </div>
-    </section>
-
-    <!-- SECTION 2 -->
-    <section>
-        <h2 data-nl="misschien random info?"
-            data-en="maybe random info?">misschien random info?</h2>
-
-        <div id="c2" class="hidden-content">
-            <p data-nl="k heb echt geen idee wat er in deze site moet"
-               data-en="I have no clue what should be in this site">
-               k heb echt geen idee wat er in deze site moet
-            </p>
-            <img class="responsive-image" src="https://i.imgur.com/GVawDeM.gif">
-        </div>
-    </section>
-</main>
-
-<footer>
-    <p data-nl="© 2025 kut website. no rights reserved."
-       data-en="© 2025 shit website. no rights reserved.">
-       © 2025 kut website. no rights reserved.
-    </p>
-</footer>
-
-<script>
-let lang = "nl";
-
-function toggleContent(contentId, buttonId) {
-    const content = document.getElementById(contentId);
-    const btn = document.getElementById(buttonId);
-
-    if (content.style.display === "block") {
-        content.style.display = "none";
-
-        // Return to normal name
-        btn.innerText = btn.getAttribute("data-" + lang);
-
-    } else {
-        content.style.display = "block";
-
-        // Add .5
-        btn.innerText = btn.getAttribute("data-" + lang) + " .5";
-    }
-}
-
-function switchLang() {
-    lang = (lang === "nl") ? "en" : "nl";
-
-    document.querySelectorAll("[data-nl]").forEach(el => {
-        el.textContent = el.getAttribute("data-" + lang);
-    });
-
-    document.querySelector(".lang-btn").innerText = (lang === "nl") ? "English" : "Nederlands";
-}
-</script>
 
 </body>
 </html>
+
