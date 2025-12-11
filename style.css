@@ -1,3 +1,24 @@
+/* Make the background fill the whole screen */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #111; /* dark mode default */
+    color: #eee;
+}
+
+/* Optional wrapper to limit content width but keep background full */
+main, header, footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Light mode overrides */
+body.light {
+    background-color: #f0f0f0; 
+    color: #222;
+}
+
 /* Dark mode background + white text */
 body {
     font-family: Arial, sans-serif;
